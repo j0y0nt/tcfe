@@ -7,6 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './design-tacos.component.html',
   styleUrl: './design-tacos.component.css'
 })
-export class DesignTacosComponent {
 
+export class DesignTacosComponent {
+  
 }
