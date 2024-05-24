@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { Taco } from '../taco';
 import { CommonModule } from '@angular/common';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-recent-tacos',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink, RouterOutlet],
   templateUrl: './recent-tacos.component.html',
   styleUrl: './recent-tacos.component.css',
 })
