@@ -1,29 +1,33 @@
 <div class="container">
-    <div  style="display:flex; flex-direction: column; flex-wrap: wrap;" *ngFor="let ingredient of designService.ingredientList; index as i; even  as isEven">
-        <div class="field" *ngIf="isEven">
-            <label class="label">{{ designService.prefixMap[ingredient.type] }} {{ ingredient.type | lowercase}}:</label>
-        </div>
-        <div class="field">
-            <label class="checkbox">
-                <input id="{{ ingredient.id }}" type="checkbox" name="ingredients" value="{{ ingredient.type }}" />
-                {{ ingredient.name }}
-            </label>
+    <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 900px; ">
+        <div style="flex: 400px; padding: 10px;" *ngFor="let groupItem of designService.ingredientByGroup; index as i;">
+            <div>
+                <div class="field">
+                    <label class="label"> {{designService.prefixMap[groupItem.type]}} {{ groupItem.type | lowercase}}:</label>
+                </div>
+                <div *ngFor="let ingredient of groupItem.ingredients; ">
+                    <div class="field">
+                        <label class="checkbox">
+                            <input id="{{ ingredient.id }}" type="checkbox" name="ingredients" value="{{ ingredient.type }}" />
+                            {{ ingredient.name }}
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="field">
+    <div class="field" style="padding: 10px;">
         <label class="label">Name your Taco creation</label>
-        <div class="control">
+        <div class="control" style="width: 400px;">
           <input class="input" type="text" placeholder="Text input">
         </div>
      </div>
 
     <div class="field is-horizontal">
-        <div class="field-label">
-          <!-- Left empty for spacing -->
-        </div>
+       
         <div class="field-body">
-          <div class="field">
+          <div class="field" style="padding: 10px;">
             <div class="control">
               <button class="button is-primary">
                 Submit your taco
@@ -32,135 +36,5 @@
           </div>
         </div>
     </div>
-
-    <!--
-        <div class="field is-horizontal" style="width: 500px;">
-        <div class="field-body">
-            <div class="display: flex; flex-direction : column;">
-                <div class="field">
-                    <label class="label">Designate your wrap:</label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" />
-                        Flour Tortilla
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" />
-                        Corn Tortilla
-                    </label>
-                </div>
-            </div>
-        </div>
-
-        <div class="field-body">
-            <div class="display: flex; flex-direction : column;">
-                <div class="field">
-                    <label class="label">Pick your protein:</label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" />
-                        Ground Beef
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" />
-                        Carnitas
-                    </label>
-                </div>    
-            </div>
-        </div>
-    </div>
-
-    <div class="field is-horizontal" style="width: 500px;">
-        <div class="field-body">
-            <div class="display: flex; flex-direction : column;">
-                <div class="field">
-                    <label class="label">Pick your cheese:</label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" name="ingredients" />
-                        Cheddar
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" name="ingredients" />
-                        Monterrey Jack
-                    </label>
-                </div>    
-            </div>
-        </div>
-
-        <div class="field-body">
-            <div class="display: flex; flex-direction : column;">
-                <div class="field">
-                    <label class="label">Pick your veggies:</label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" name="ingredients" />
-                        Diced Tomatoes
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" name="ingredients" />
-                        Lettuce
-                    </label>
-                </div>    
-            </div>
-        </div>    
-    </div>
-
-    <div class="field" style="width: 500px;">
-        <div class="field-body">
-            <div class="display: flex; flex-direction : column;">
-                <div class="field">
-                    <label class="label">Pick your sauce:</label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" name="ingredients" />
-                        Salsa
-                    </label>
-                </div>
-                <div class="field">
-                    <label class="checkbox">
-                        <input type="checkbox" name="ingredients" name="ingredients" />
-                        Sour Cream
-                    </label>
-                </div> 
-            </div>
-        </div>
-    </div>
-
-    <div class="field">
-        <label class="label">Name your Taco creation</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input">
-        </div>
-     </div>
-
-    <div class="field is-horizontal">
-        <div class="field-label">
-      
-        </div>
-        <div class="field-body">
-          <div class="field">
-            <div class="control">
-              <button class="button is-primary">
-                Submit your taco
-              </button>
-            </div>
-          </div>
-        </div>
-    </div>
-    -->
 
 </div>
