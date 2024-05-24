@@ -8,6 +8,14 @@ export class TacoDesignService {
 
   constructor() { }
 
+  prefixMap: any = {
+    'WRAP': 'Designate your',
+    'PROTEIN': 'Pick your',
+    'VEGGIES': 'Pick your',
+    'CHEESE': 'Pick your',
+    'SAUCE': 'Pick your',
+  };
+
   ingredientList: Ingredient[] = [{
     id: 'FLTO', 
     name: 'Flour Tortilla', 
