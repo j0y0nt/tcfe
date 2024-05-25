@@ -29,8 +29,8 @@ export class DesignTacosComponent {
     return this.applyForm.get('ingredients') as FormArray;
   }
 
-  addAlias($event: any) {
-    console.log($event.target.checked + ' ' + $event.target.value);
+  addIngredient($event: any) {
+   
     if($event.target.checked) {
       this.selected.push($event.target.id);
     } else {
@@ -40,7 +40,7 @@ export class DesignTacosComponent {
   }
 
   submitTacoDesign() {
-    console.log(this.applyForm.value.ingredients);
+    
     this.designService.submitTacoDesign(
       this.applyForm.value.name ?? '',
       this.selected ?? [],
