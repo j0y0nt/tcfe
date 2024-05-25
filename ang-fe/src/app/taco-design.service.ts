@@ -144,7 +144,7 @@ export class TacoDesignService {
 
   submitTacoDesign(name: String, ingredients: string[]) {
     console.log(
-      `Janeman Tacowalla Taco Design received: name: ${name}, ingredients: ${ingredients} .`,
+      `Taco Design received: name: ${name}, ingredients: ${ingredients} .`,
     );
   }
 
