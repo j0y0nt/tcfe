@@ -1,4 +1,6 @@
 <div class="container">
+
+  <form [formGroup]="applyForm" (submit)="submitTacoDesign()">
     <div style="display: flex; flex-direction: row; flex-wrap: wrap; width: 900px; ">
         <div style="flex: 400px; padding: 10px;" *ngFor="let groupItem of designService.ingredientByGroup; index as i;">
             <div>
@@ -8,7 +10,8 @@
                 <div *ngFor="let ingredient of groupItem.ingredients; ">
                     <div class="field">
                         <label class="checkbox">
-                            <input id="{{ ingredient.id }}" type="checkbox" name="ingredients" value="{{ ingredient.type }}" />
+                            <input id="{{ ingredient.id }}" type="checkbox" name="ingredients" value="{{ ingredient.type }}" 
+                            (change)="addIngredient($event)" formArrayName="ingredients" />
                             {{ ingredient.name }}
                         </label>
                     </div>
@@ -20,7 +23,7 @@
     <div class="field" style="padding: 10px;">
         <label class="label">Name your Taco creation</label>
         <div class="control" style="width: 400px;">
-          <input class="input" type="text" placeholder="Text input">
+          <input class="input" type="text" placeholder="Text input" formControlName="name" >
         </div>
      </div>
 
@@ -36,5 +39,5 @@
           </div>
         </div>
     </div>
-
+    </form>
 </div>

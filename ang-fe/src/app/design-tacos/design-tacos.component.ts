@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TacoDesignService } from '../taco-design.service';
 import { CommonModule } from '@angular/common';
-import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
+import {FormBuilder, FormArray, FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-design-tacos',
@@ -14,10 +14,36 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 export class DesignTacosComponent {
 
   designService: TacoDesignService = inject(TacoDesignService);
+  applyForm: FormGroup;
+  selected: string[];
 
-  applyForm = new FormGroup({
-    name: new FormControl(''),
-    ingredients: new FormControl(''),
-  });
+  constructor(private formBuilder: FormBuilder) {
+    this.applyForm = this.formBuilder.group({
+      name: new FormControl(''),
+      ingredients: new FormArray([new FormControl('')]),
+    });
+    this.selected = [];
+  }
 
+  get ingredients() {
+    return this.applyForm.get('ingredients') as FormArray;
+  }
+
+  addAlias($event: any) {
+    console.log($event.target.checked + ' ' + $event.target.value);
+    if($event.target.checked) {
+      this.selected.push($event.target.id);
+    } else {
+      this.selected = this.selected.filter(item => item !== $event.target.id)
+    }
+    
+  }
+
+  submitTacoDesign() {
+    console.log(this.applyForm.value.ingredients);
+    this.designService.submitTacoDesign(
+      this.applyForm.value.name ?? '',
+      this.selected ?? [],
+    );
+  }
 }
