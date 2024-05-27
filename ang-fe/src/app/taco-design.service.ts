@@ -1,12 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Ingredient } from './ingredient';
+import { HttpClient } from '@angular/common/http';
+import { Taco } from './taco';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TacoDesignService {
-
-  constructor() { }
+  url = 'http://localhost:3000/locations';
+ 
+  constructor (private http: HttpClient) { 
+    
+  }
 
   prefixMap: any = {
     'WRAP': 'Designate your',
@@ -142,10 +147,12 @@ export class TacoDesignService {
     return this.ingredientList;
   }
 
-  submitTacoDesign(name: String, ingredients: string[]) {
-    console.log(
-      `Taco Design received: name: ${name}, ingredients: ${ingredients} .`,
-    );
+  submitTacoDesign(name: String, ingredients: Ingredient[]) {
+    
+    this.http.post<Taco>('http://localhost:8080/tcdesign/', {name: name, ingredients: ingredients}).subscribe(taco => {
+      console.log('Updated config:', taco);
+    });
+    
   }
 
 }
