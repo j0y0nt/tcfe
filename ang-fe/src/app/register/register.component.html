@@ -1,0 +1,113 @@
+<div class="container" style="width: 60%;">
+    <form [formGroup]="applyForm" (submit)="registerUser()">
+    <div class="field">
+        <label class="label">Username</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Text input" formControlName="username">
+        </div>
+      </div>
+      
+      <div class="field">
+        <label class="label">Password</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-success" type="password" placeholder="Password" 
+          formControlName="password">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+        <p class="help is-success">This password is invalid</p>
+      </div>
+
+      <div class="field">
+        <label class="label">Confirm Password</label>
+        <div class="control has-icons-left has-icons-right">
+          <input class="input is-success" type="password" placeholder="Password" 
+          formControlName="confirmPassword">
+          <span class="icon is-small is-left">
+            <i class="fas fa-user"></i>
+          </span>
+          <span class="icon is-small is-right">
+            <i class="fas fa-check"></i>
+          </span>
+        </div>
+        <p class="help is-success">This password is invalid</p>
+      </div>
+
+      <div class="field">
+        <label class="label">Fullname</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Fullname"  formControlName="fullName">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">Street</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="Street"  formControlName="street">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">City</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="City"  formControlName="city">
+        </div>
+      </div>
+
+      <div class="field">
+        <label class="label">State</label>
+        <div class="control">
+          <input class="input" type="text" placeholder="State"  formControlName="state">
+        </div>
+      </div>
+
+    <div class="field">
+        <label class="label">Zip</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="zip"  formControlName="zip">
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Phone</label>
+        <div class="control">
+            <input class="input" type="text" placeholder="Phone"  formControlName="phoneNumber">
+        </div>
+    </div>
+
+    <div class="field">
+        <div class="control">
+            <label class="checkbox">
+                <input type="checkbox">
+                    I agree to the <a href="#">terms and conditions</a>
+            </label>
+        </div>
+    </div>
+      
+    <div class="field">
+        <div class="control">
+            <label class="radio">
+                <input type="radio" name="question">
+                    Yes
+            </label>
+            <label class="radio">
+                <input type="radio" name="question">
+                 No
+            </label>
+        </div>
+    </div>
+      
+    <div class="field is-grouped">
+        <div class="control">
+            <button class="button is-link">Submit</button>
+        </div>
+        <div class="control">
+            <button class="button is-link is-light">Cancel</button>
+        </div>
+    </div>
+    </form>
+</div>
