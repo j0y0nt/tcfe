@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Component, inject } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { UserAuthService } from '../user-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +13,13 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginComponent {
 
+  authService: UserAuthService = inject(UserAuthService);
+
+  constructor(
+    private router: Router ) {
+
+    }
+
   loginForm: FormGroup = new FormGroup({
     username: new FormControl(''),
     password: new FormControl('')
@@ -19,7 +28,8 @@ export class LoginComponent {
 login() {
   let username = this.loginForm.value.username;
   let password = this.loginForm.value.password;
-
+  this.authService.login(username, password);
   console.log(username + '  ' + password);
+  this.router.navigate(['/design', { }]);
 };
 }

@@ -12,7 +12,9 @@ export class UserAuthService {
 
   login(username: string, password: string): string {
 
-    this.http.post<any>('http://localhost:8080/login/', {username: username, password: password}).subscribe(authToken => {
+    this.http.post<any>(
+      'http://localhost:8080/auth/login',
+       {username: username, password: password}).subscribe(authToken => {
       console.log('handle jwt token ');
     });
     return '';
