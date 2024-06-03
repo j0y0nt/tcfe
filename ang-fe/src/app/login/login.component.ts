@@ -14,10 +14,13 @@ import { UserAuthService } from '../user-auth.service';
 export class LoginComponent {
 
   authService: UserAuthService = inject(UserAuthService);
+  loginError: boolean;
+  errMsg : string;
 
   constructor(
     private router: Router ) {
-
+      this.loginError = false;
+      this.errMsg = '';
     }
 
   loginForm: FormGroup = new FormGroup({
@@ -26,10 +29,22 @@ export class LoginComponent {
 });
 
 login() {
+  
   let username = this.loginForm.value.username;
   let password = this.loginForm.value.password;
-  this.authService.login(username, password);
-  console.log(username + '  ' + password);
-  this.router.navigate(['/design', { }]);
+
+  this.authService.login(username, password).subscribe({
+    next: (x) => {
+      this.loginError = false;
+      this.errMsg = '';
+      console.log(x); this.router.navigate(['/design', { }]);
+    },
+    error: (errResponse) => { 
+      this.loginError = true;
+      this.errMsg = errResponse.error.message;
+      console.log(errResponse.error.message); 
+    }
+  });
+
 };
 }
