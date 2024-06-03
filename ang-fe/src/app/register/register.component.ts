@@ -24,13 +24,13 @@ export class RegisterComponent {
       username: new FormControl('',[Validators.required, Validators.minLength(4)]),
       password: new FormControl('', [Validators.required, Validators.minLength(8)]),
       confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
-      fullName: new FormControl(''),
-      phoneNumber: new FormControl(''),
-      street: new FormControl(''),
-      city: new FormControl(''),
-      state: new FormControl(''),
-      zip: new FormControl(),
-      country: new FormControl(''),
+      fullName: new FormControl('', [Validators.required]),
+      phoneNumber: new FormControl('', [Validators.required]),
+      street: new FormControl('', [Validators.required]),
+      city: new FormControl('', [Validators.required]),
+      state: new FormControl('', [Validators.required]),
+      zip: new FormControl('', [Validators.required]),
+      //country: new FormControl('', [Validators.required]),
     });
   }
 
@@ -45,11 +45,35 @@ export class RegisterComponent {
   get confirmPassword() {
     return this.registrationForm.get('confirmPassword');
   }
+
+  get fullName() {
+    return this.registrationForm.get('fullName');
+  }
   
+  get street() {
+    return this.registrationForm.get('street');
+  }
+
+  get city() {
+    return this.registrationForm.get('city');
+  }
+
+  get state() {
+    return this.registrationForm.get('state');
+  }
+
+  get zip() {
+    return this.registrationForm.get('zip');
+  }
+
+  get phoneNumber() {
+    return this.registrationForm.get('phoneNumber');
+  }
 
   registerUser() {
-    console.warn(this.registrationForm.value);
-    console.log('submitted.');
+    //console.warn(this.registrationForm.value);
+    //console.log('submitted.');
+    //console.log(this.registrationForm.errors);
     if(this.registrationForm.invalid){
       return;
     } else {

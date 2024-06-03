@@ -63,35 +63,64 @@
         <label class="label" for="reg-fullName">Fullname</label>
         <div class="control">
           <input id="reg-fullName" class="input" type="text" placeholder="Fullname"
-            formControlName="fullName">
+            formControlName="fullName" name="fullName">
+        </div>
+        <div *ngIf="fullName && fullName.invalid && (fullName.dirty || fullName.touched)">
+          <p class="help is-danger" *ngIf="fullName.hasError('required')" >
+            Name is required.
+          </p>
         </div>
       </div>
 
       <div class="field">
         <label class="label" for="reg-street">Street</label>
         <div class="control">
-          <input id="reg-street" class="input" type="text" placeholder="Street"  formControlName="street">
+          <input id="reg-street" class="input" type="text" placeholder="Street"
+            formControlName="street" name="street">
+        </div>
+        <div *ngIf="street && street.invalid && (street.dirty || street.touched)">
+          <p class="help is-danger" *ngIf="street.hasError('required')" >
+            Street is required.
+          </p>
         </div>
       </div>
 
       <div class="field">
         <label class="label" for="reg-city">City</label>
         <div class="control">
-          <input id="reg-city" class="input" type="text" placeholder="City"  formControlName="city">
+          <input id="reg-city" class="input" type="text" placeholder="City"
+            formControlName="city" name="city">
+        </div>
+        <div *ngIf="city && city.invalid && (city.dirty || city.touched)">
+          <p class="help is-danger" *ngIf="city.hasError('required')" >
+            City is required.
+          </p>
         </div>
       </div>
 
       <div class="field">
         <label class="label" for="reg-state">State</label>
         <div class="control">
-          <input  id="reg-state" class="input" type="text" placeholder="State"  formControlName="state">
+          <input  id="reg-state" class="input" type="text" placeholder="State"  
+          formControlName="state" name="state">
+        </div>
+        <div *ngIf="state && state.invalid && (state.dirty || state.touched)">
+          <p class="help is-danger" *ngIf="state.hasError('required')" >
+            State is required.
+          </p>
         </div>
       </div>
 
     <div class="field">
         <label class="label" for="reg-zipcode">Zip</label>
         <div class="control">
-            <input  id="reg-zipcode" class="input" type="text" placeholder="zip"  formControlName="zip">
+            <input  id="reg-zipcode" class="input" type="text" placeholder="zip"
+              formControlName="zip" name="zip">
+        </div>
+        <div *ngIf="zip && zip.invalid && (zip.dirty || zip.touched)">
+          <p class="help is-danger" *ngIf="zip.hasError('required')" >
+            Zipcode is required.
+          </p>
         </div>
     </div>
 
@@ -99,7 +128,12 @@
         <label class="label" for="reg-phoneNumber">Phone</label>
         <div class="control">
             <input id="reg-phoneNumber" class="input" type="text" placeholder="Phone" 
-             formControlName="phoneNumber">
+             formControlName="phoneNumber" name="phoneNumber">
+        </div>
+        <div *ngIf="phoneNumber && phoneNumber.invalid && (phoneNumber.dirty || phoneNumber.touched)">
+          <p class="help is-danger" *ngIf="phoneNumber.hasError('required')" >
+            Phone number is required.
+          </p>
         </div>
     </div>
 
