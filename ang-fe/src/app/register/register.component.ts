@@ -4,6 +4,7 @@ import {FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
 import { RegisterUserService } from '../register-user.service';
 import { User } from '../user';
 import { UserAddress } from '../user-address';
+import { Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -16,37 +17,58 @@ import { UserAddress } from '../user-address';
 export class RegisterComponent {
   
   registerService: RegisterUserService = inject(RegisterUserService);
+  registrationForm: FormGroup;
 
-  applyForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
-    confirmPassword: new FormControl(''),
-    fullName: new FormControl(''),
-    phoneNumber: new FormControl(''),
-    street: new FormControl(''),
-    city: new FormControl(''),
-    state: new FormControl(''),
-    zip: new FormControl(),
-    country: new FormControl(''),
-  });
+  constructor() {
+    this.registrationForm = new FormGroup({
+      username: new FormControl('',[Validators.required, Validators.minLength(4)]),
+      password: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      confirmPassword: new FormControl('', [Validators.required, Validators.minLength(8)]),
+      fullName: new FormControl(''),
+      phoneNumber: new FormControl(''),
+      street: new FormControl(''),
+      city: new FormControl(''),
+      state: new FormControl(''),
+      zip: new FormControl(),
+      country: new FormControl(''),
+    });
+  }
+
+  get username() {
+    return this.registrationForm.get('username');
+  }
+
+  get password() {
+    return this.registrationForm.get('password');
+  }
+
+  get confirmPassword() {
+    return this.registrationForm.get('confirmPassword');
+  }
+  
 
   registerUser() {
-
-    let user: User = { 
-        username: this.applyForm.value.username!,
-        password: this.applyForm.value.password!,
-        confirmPassword: this.applyForm.value.confirmPassword!,
-        fullname: this.applyForm.value.fullName!,
-        phone: this.applyForm.value.phoneNumber!,
-        street: this.applyForm.value.street!,
-        city: this.applyForm.value.city!,
-        state: this.applyForm.value.state!,
-        zip: this.applyForm.value.zip!,
-        country: this.applyForm.value.country!
+    console.warn(this.registrationForm.value);
+    console.log('submitted.');
+    if(this.registrationForm.invalid){
+      return;
+    } else {
+      let user: User = { 
+        username: this.registrationForm.value.username!,
+        password: this.registrationForm.value.password!,
+        confirmPassword: this.registrationForm.value.confirmPassword!,
+        fullname: this.registrationForm.value.fullName!,
+        phone: this.registrationForm.value.phoneNumber!,
+        street: this.registrationForm.value.street!,
+        city: this.registrationForm.value.city!,
+        state: this.registrationForm.value.state!,
+        zip: this.registrationForm.value.zip!,
+        country: this.registrationForm.value.country!
       };
 
     this.registerService.registerUser(
       user
     );
+    }
   }
 }
