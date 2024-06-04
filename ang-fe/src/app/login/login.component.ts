@@ -37,11 +37,14 @@ login() {
     next: (x) => {
       this.loginError = false;
       this.errMsg = '';
-      console.log(x); this.router.navigate(['/design', { }]);
+      console.log(x); 
+      localStorage.setItem('currentUser', JSON.stringify(x));
+      this.router.navigate(['/design', { }]);
     },
     error: (errResponse) => { 
       this.loginError = true;
       this.errMsg = errResponse.error.message;
+      localStorage.removeItem('currentUser');
       console.log(errResponse.error.message); 
     }
   });

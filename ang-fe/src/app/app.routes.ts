@@ -3,6 +3,7 @@ import { DesignTacosComponent } from './design-tacos/design-tacos.component';
 import { RecentTacosComponent } from './recent-tacos/recent-tacos.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { isAuthenticatedGuard } from './is-authenticated.guard';
 
 export const routes: Routes = [{
     path:   '',
@@ -12,7 +13,8 @@ export const routes: Routes = [{
     {
         path:   'design',
         component: DesignTacosComponent,
-        title: 'Design Tacos'
+        title: 'Design Tacos',
+        canActivate: [isAuthenticatedGuard]
     },
     {
         path: 'login',
