@@ -1,0 +1,157 @@
+<div class="container">
+    <form (ngSubmit)="createOrder()"  #orderForm="ngForm">
+        <div class="field">
+            <label class="label" for="reg-name">Name</label>
+            <div class="control">
+              <input id="reg-name" class="input" type="text" required 
+                [(ngModel)]="model.name" 
+                #name="ngModel"
+                name="name" autocomplete="name"
+                placeholder="Enter name"  >
+            </div>
+            <div [hidden]="name.valid || name.pristine" >
+                <p class="help is-danger">
+                    Name is required.
+                </p>
+            </div>
+        </div>
+        <!-- Street Field begin -->
+        <div class="field">
+            <label class="label" for="reg-street">Street</label>
+            <div class="control">
+              <input id="reg-street" class="input" type="text" required 
+                [(ngModel)]="model.street" 
+                #street="ngModel"
+                name="street" autocomplete="street-address"
+                placeholder="Enter street"  >
+            </div>
+            <div [hidden]="street.valid || street.pristine" >
+                <p class="help is-danger">
+                    Street is required.
+                </p>
+            </div>
+        </div>
+        <!-- Street Field end -->
+
+        <!-- city Field begin -->
+        <div class="field">
+            <label class="label" for="reg-city">City</label>
+            <div class="control">
+              <input id="reg-city" class="input" type="text" required 
+                [(ngModel)]="model.city" 
+                #city="ngModel"
+                name="city" autocomplete="address-level2"
+                placeholder="Enter city name"  >
+            </div>
+            <div [hidden]="city.valid || city.pristine" >
+                <p class="help is-danger">
+                    City is required.
+                </p>
+            </div>
+        </div>
+        <!-- city Field end -->
+
+        <!-- state Field begin -->
+        <div class="field">
+            <label class="label" for="reg-state">State</label>
+            <div class="control">
+              <input id="reg-state" class="input" type="text" required 
+                [(ngModel)]="model.state" 
+                #state="ngModel"
+                name="state" autocomplete="address-level1"
+                placeholder="Enter state name"  >
+            </div>
+            <div [hidden]="state.valid || state.pristine" >
+                <p class="help is-danger">
+                    State is required.
+                </p>
+            </div>
+        </div>
+        <!-- state Field end -->
+
+        <!-- zip Field begin -->
+        <div class="field">
+            <label class="label" for="reg-zip">Zipcode</label>
+            <div class="control">
+              <input id="reg-zip" class="input" type="text" required 
+                [(ngModel)]="model.zip" 
+                #zip="ngModel"
+                name="zip" autocomplete="postal-code"
+                placeholder="Enter zipcode..."  >
+            </div>
+            <div [hidden]="zip.valid || zip.pristine" >
+                <p class="help is-danger">
+                    Zipcode is required.
+                </p>
+            </div>
+        </div>
+        <!-- zip Field end -->
+
+        <!-- ccNumber Field begin -->
+        <div class="field">
+            <label class="label" for="reg-ccnumber">Credit Card Number</label>
+            <div class="control">
+              <input id="reg-ccnumber" class="input" type="text" required 
+                [(ngModel)]="model.ccNumber" 
+                #ccNumber="ngModel"
+                name="ccNumber" autocomplete="cc-number"
+                placeholder="Enter credit card number..."  >
+            </div>
+            <div [hidden]="ccNumber.valid || ccNumber.pristine" >
+                <p class="help is-danger">
+                    Credit Card number is required.
+                </p>
+            </div>
+        </div>
+        <!-- ccNumber Field end -->
+
+        <!-- ccExpiration Field begin -->
+        <div class="field">
+            <label class="label" for="reg-ccExpiration">Credit Card Expiry Date</label>
+            <div class="control">
+              <input id="reg-ccExpiration" class="input" type="text" required 
+                [(ngModel)]="model.ccExpiration" 
+                #ccExpiration="ngModel"
+                name="ccExpiration" autocomplete="cc-exp"
+                placeholder="Enter credit card number..."  >
+            </div>
+            <div [hidden]="ccExpiration.valid || ccExpiration.pristine" >
+                <p class="help is-danger">
+                    Credit Card expiry date is required.
+                </p>
+            </div>
+        </div>
+        <!-- ccExpiration Field end -->
+
+        <!-- ccCvv Field begin -->
+        <div class="field">
+            <label class="label" for="reg-cvv">Credit Card CVV</label>
+            <div class="control">
+              <input id="reg-cvv" class="input" type="text" required 
+                [(ngModel)]="model.ccCvv" 
+                #ccCvv="ngModel"
+                name="ccCvv" autocomplete="cc-csc"
+                placeholder="Enter credit card number..."  >
+            </div>
+            <div [hidden]="ccCvv.valid || ccCvv.pristine" >
+                <p class="help is-danger">
+                    Credit Card CVV is required.
+                </p>
+            </div>
+        </div>
+        <!-- ccCvv Field end -->
+
+
+        
+        <div class="field is-horizontal">
+            <div class="field-body">
+              <div class="field" style="padding: 10px;">
+                <div class="control">
+                    <button type="submit" class="button is-primary"
+                    [disabled]="!orderForm.form.valid">Submit</button>
+                </div>
+              </div>
+            </div>
+        </div>
+    </form>
+</div>

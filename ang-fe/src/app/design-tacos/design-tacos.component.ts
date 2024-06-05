@@ -1,4 +1,5 @@
 import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { TacoDesignService } from '../taco-design.service';
 import { CommonModule } from '@angular/common';
 import {FormBuilder, FormArray, FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
@@ -18,7 +19,7 @@ export class DesignTacosComponent {
   applyForm: FormGroup;
   selected: Ingredient[];
 
-  constructor(private formBuilder: FormBuilder) {
+  constructor(private formBuilder: FormBuilder, private router: Router ) {
     this.applyForm = this.formBuilder.group({
       name: new FormControl(''),
       ingredients: new FormArray([new FormControl('')]),
@@ -45,6 +46,15 @@ export class DesignTacosComponent {
     this.designService.submitTacoDesign(
       this.applyForm.value.name ?? '',
       this.selected ?? [],
-    );
+    ).subscribe({
+      next: (taco) => {
+        console.log(taco); 
+        //localStorage.setItem('currentUser', JSON.stringify(x));
+        this.router.navigate(['/order', { tacoId: taco.id}]);
+      },
+      error: (errResponse) => { 
+        console.log(errResponse.error.message); 
+      }
+    });
   }
 }

@@ -4,6 +4,7 @@ import { RecentTacosComponent } from './recent-tacos/recent-tacos.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { isAuthenticatedGuard } from './is-authenticated.guard';
+import { OrderComponent } from './order/order.component';
 
 export const routes: Routes = [{
     path:   '',
@@ -25,5 +26,10 @@ export const routes: Routes = [{
         path: 'register',
         component: RegisterComponent,
         title: 'Register'
+    },
+    {
+        path: 'order',
+        component: OrderComponent,
+        title: 'Order'
     },
 ];

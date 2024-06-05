@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Ingredient } from './ingredient';
 import { HttpClient } from '@angular/common/http';
 import { Taco } from './taco';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -147,12 +148,8 @@ export class TacoDesignService {
     return this.ingredientList;
   }
 
-  submitTacoDesign(name: String, ingredients: Ingredient[]) {
-    
-    this.http.post<Taco>('http://localhost:8080/tcdesign/', {name: name, ingredients: ingredients}).subscribe(taco => {
-      console.log('Updated config:', taco);
-    });
-    
+  submitTacoDesign(name: String, ingredients: Ingredient[]): Observable<Taco> {
+    return this.http.post<Taco>('http://localhost:8080/tcdesign/', {name: name, ingredients: ingredients});
   }
 
 }
