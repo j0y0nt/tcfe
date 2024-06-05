@@ -9,7 +9,7 @@ export class Order {
         public ccNumber: string, 
         public ccExpiration: string, 
         public ccCvv: string, 
-        public tacoId: string,
+        public tacoId?: number,
         public id?: number,
       ) {}
 }
