@@ -37,7 +37,6 @@ login() {
     next: (x) => {
       this.loginError = false;
       this.errMsg = '';
-      console.log(x); 
       localStorage.setItem('currentUser', JSON.stringify(x));
       this.router.navigate(['/design', { }]);
     },

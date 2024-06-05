@@ -5,7 +5,7 @@
         <div style="flex: 400px; padding: 10px;" *ngFor="let groupItem of designService.ingredientByGroup; index as i;">
             <div>
                 <div class="field">
-                    <label class="label"> {{designService.prefixMap[groupItem.type]}} {{ groupItem.type | lowercase}}:</label>
+                    <label class="label" for="FLTO"> {{designService.prefixMap[groupItem.type]}} {{ groupItem.type | lowercase}}:</label>
                 </div>
                 <div *ngFor="let ingredient of groupItem.ingredients; ">
                     <div class="field">
@@ -21,9 +21,10 @@
     </div>
 
     <div class="field" style="padding: 10px;">
-        <label class="label">Name your Taco creation</label>
+        <label class="label" for="taco-name">Name your Taco creation</label>
         <div class="control" style="width: 400px;">
-          <input class="input" type="text" placeholder="Text input" formControlName="name" >
+          <input id="taco-name" class="input" type="text"
+           placeholder="Text input" formControlName="name" >
         </div>
      </div>
 
