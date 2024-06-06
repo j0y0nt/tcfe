@@ -1,5 +1,5 @@
 <div class="container" style=" display: flex; justify-content: space-between;">
-    <div class="" style="width:70%;  display: flex; flex-direction: column; justify-content: center;">
+    <div class="login-box-left" style="">
         <div class="" style="border-radius: 20px; ">
             <!-- Image container div -->
            
@@ -12,8 +12,9 @@
            
         </div>
     </div>
-    <div style="display: flex; flex-direction: column; justify-content: center;">
-        <div style="padding: 40px 40px 40px 40px;">
+    <div class="login-box-right">
+        <div class="login-message">Signin <br/> to order <br/> your favorite tacos....</div>
+        <div style="">
             <form [formGroup]="loginForm" (submit)="login()">
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
