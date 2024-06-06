@@ -8,8 +8,11 @@
                     <label class="label" for="FLTO"> {{designService.prefixMap[groupItem.type]}} {{ groupItem.type | lowercase}}:</label>
                 </div>
                 <div *ngFor="let ingredient of groupItem.ingredients; ">
-                    <div class="field">
-                        <label class="checkbox">
+                    <div class="field ingredient-div" style="flex-direction: row;">
+                      <figure class="image is-128x128 taco-figure">
+                        <img src="/assets/images/design/corn-tortilla.jpg" />
+                      </figure>
+                        <label class="checkbox ingredient-label">
                             <input id="{{ ingredient.id }}" type="checkbox" name="ingredients" value="{{ ingredient.type }}" 
                             (change)="addIngredient($event)" formArrayName="ingredients" />
                             {{ ingredient.name }}

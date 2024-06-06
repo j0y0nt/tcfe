@@ -1,0 +1,19 @@
+.ingredient-div {
+    display: flex;
+    flex-direction: row;
+    /* align-items: center; */
+    align-items: center;
+    /* justify-content: flex-start; */
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 5px 5px 5px 5px;
+    padding: 5px 5px 5px 5px;
+}
+
+.taco-figure {
+    display: flex;
+}
+
+.ingredient-label {
+    padding-left: 10px;
+}
