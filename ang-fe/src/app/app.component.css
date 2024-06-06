@@ -1,3 +1,13 @@
+@media (prefers-color-scheme: dark) {
+    :root {
+      /* Update CSS variables */
+    }
+  }
+  
+  [data-theme=dark],
+  .theme-dark {
+    /* Update CSS variables */
+  }
 .main-container {
     background: rgb(33,157,222);
     background: linear-gradient(90deg, rgba(33,157,222,1) 0%, rgba(190,232,215,1) 24%, rgba(83,227,228,1) 100%);
