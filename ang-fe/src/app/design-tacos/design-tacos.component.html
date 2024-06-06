@@ -10,7 +10,7 @@
                 <div *ngFor="let ingredient of groupItem.ingredients; ">
                     <div class="field ingredient-div" style="flex-direction: row;">
                       <figure class="image is-128x128 taco-figure">
-                        <img src="/assets/images/design/corn-tortilla.jpg" />
+                        <img src="/assets/images/design/{{ iconMap[ingredient.id] }}" />
                       </figure>
                         <label class="checkbox ingredient-label">
                             <input id="{{ ingredient.id }}" type="checkbox" name="ingredients" value="{{ ingredient.type }}" 

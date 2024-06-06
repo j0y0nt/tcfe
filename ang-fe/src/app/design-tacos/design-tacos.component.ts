@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute  } from '@angular/router';
 import { TacoDesignService } from '../taco-design.service';
 import { CommonModule } from '@angular/common';
 import {FormBuilder, FormArray, FormControl, FormGroup, ReactiveFormsModule} from '@angular/forms';
@@ -14,6 +14,20 @@ import { Ingredient } from '../ingredient';
 })
 
 export class DesignTacosComponent {
+  
+  iconMap: any = {
+    'FLTO': 'wheat-tortilla.jpg',
+    'COTO': 'corn-tortilla.jpg',
+    'GRBF': 'ground-beef.jpg',
+    'CARN': 'carnitaas.jpg',
+    'TMTO': 'diced-tomatoes.jpg',
+    'LETC': 'lettuce.jpg',
+    'CHED': 'cheddar-cheese.jpg',
+    'JACK': 'monterry-jack-cheese.jpg',
+    'SLSA': 'salsa-sauce.jpg',
+    'SRCR': 'sour-cream.jpg'
+  };
+
 
   designService: TacoDesignService = inject(TacoDesignService);
   applyForm: FormGroup;
